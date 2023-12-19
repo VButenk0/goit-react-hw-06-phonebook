@@ -12,7 +12,12 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const persistConfig = { key: 'contacts', version: 1, storage };
+const persistConfig = {
+  key: 'contacts',
+  version: 1,
+  storage,
+  blacklist: ['filter'],
+};
 
 const persistedContactsReducer = persistReducer(persistConfig, contactsReducer);
 
