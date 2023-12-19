@@ -1,7 +1,11 @@
 import React from 'react';
 import { StyledSearch } from './Filter.styled';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from '../../redux/contactsSlice';
 
-export const Filter = ({ filter, onChange }) => {
+export const Filter = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <label htmlFor="filter">Find contacts by name</label>
@@ -9,8 +13,7 @@ export const Filter = ({ filter, onChange }) => {
       <StyledSearch
         id="filter"
         type="text"
-        value={filter}
-        onChange={onChange}
+        onChange={e => dispatch(changeFilter(e.target.value))}
       />
     </>
   );
